@@ -57,6 +57,8 @@
     "scripts": {
         "vscode:prepublish": "yarn run compile",
         "compile": "tsc -p ./",
+        "package": "npm run compile ; vsce package --no-yarn",
+        "install": "npm run package ; code --install-extension call-graph-*.vsix",
         "watch": "tsc -watch -p ./",
         "pretest": "yarn run compile && yarn run lint",
         "lint": "eslint src --ext ts",
@@ -74,7 +76,8 @@
         "eslint": "^8.11.0",
         "glob": "^7.2.0",
         "mocha": "^9.2.2",
-        "typescript": "^4.5.5"
+        "typescript": "^4.5.5",
+        "vsce": "^2.15.0"
     },
     "repository": {
         "type": "git",
